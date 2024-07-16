@@ -27,11 +27,5 @@ export default {
 }
 </script>
 
-<style>
-@media (min-width: 2560px) {
-    .v-app {
-        max-width: 1500px;
-    }
-}
-</style>
+
 
