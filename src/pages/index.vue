@@ -1,5 +1,5 @@
     <template>
-        <v-app>
+        <v-app id="main">
             <bar />
 
             <v-main flat>
@@ -27,5 +27,13 @@ export default {
 }
 </script>
 
-
+<style>
+@media (min-width: 2160px) {
+    #main {
+        max-width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+</style>
 

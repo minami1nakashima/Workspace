@@ -32,7 +32,7 @@
             </v-col>
             <v-col>
                 <v-card class="mx-auto" max-width="344">
-                    <v-img height="200px" src="@/assets/img/mosajk2dnS.jpg" cover>
+                    <v-img height="200px" src="@/assets/img/home/yoptook.jpg" cover>
                     </v-img>
 
                     <v-card-title>
@@ -64,7 +64,7 @@
             </v-col>
             <v-col>
                 <v-card class="mx-auto" max-width="344">
-                    <v-img height="200px" src="@/assets/img/mart-1240330_1280.jpg" cover>
+                    <v-img height="200px" src="@/assets/img/home/ramen.jpg" cover>
                     </v-img>
 
                     <v-card-title>
@@ -96,7 +96,7 @@
             </v-col>
             <v-col>
                 <v-card class="mx-auto" max-width="344">
-                    <v-img height="200px" src="@/assets/img/kochujang-934742_1280.jpg" cover>
+                    <v-img height="200px" src="@/assets/img/home/kochujang.jpg" cover>
                     </v-img>
 
                     <v-card-title>
@@ -130,11 +130,11 @@
     </template>
 
 <script>
-import img1 from "@/assets/img/gwanghwamun-636113_1280.jpg"
-import img2 from "@/assets/img/Seoul-GettyImages-1140551641.jpg"
-import img3 from "@/assets/img/bukchon-3905234_1280.jpg"
-import img4 from "@/assets/img/Myeongdong.jpg"
-import img5 from "@/assets/img/seoul-3804293_1280.jpg"
+import img1 from "@/assets/img/home/gwanghwamun.jpg"
+import img2 from "@/assets/img/home/nseoultower.jpg"
+import img3 from "@/assets/img/home/bukchon_1.jpg"
+import img4 from "@/assets/img/home/Myeongdong.jpg"
+import img5 from "@/assets/img/home/cheonggyecheon.jpg"
 
 export default {
     data() {
