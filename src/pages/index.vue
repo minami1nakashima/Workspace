@@ -16,21 +16,18 @@ import Menu from "@/components/Menu.vue"
 import bar from "@/components/Appbar.vue"
 
 export default {
+
     components: {
         Menu,
         bar,
     }
-
-    // data: () => ({
-
-    // })
 }
 </script>
 
 <style>
-@media (min-width: 2160px) {
+@media (min-width: 1200px) {
     #main {
-        max-width: 1500px;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
     }

@@ -5,7 +5,7 @@
             <v-menu activator="parent" icon="bar-nav-icon">
                 <v-list @click:select="clickItem">
                     <v-list-item value="1">
-                        <v-list-item-title>Seoul</v-list-item-title>
+                        <v-list-item-title @click="onSeoul">Seoul</v-list-item-title>
                     </v-list-item>
                     <v-list-item value="2">
                         <v-list-item-title>Busan</v-list-item-title>
@@ -31,6 +31,11 @@
 </template>
 <script>
 export default {
-    name: "bar"
+    name: "bar",
+    methods: {
+        onSeoul() {
+            this.$router.push('/seoul')
+        }
+    }
 }
 </script>
