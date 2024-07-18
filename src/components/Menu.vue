@@ -1,6 +1,6 @@
 <template>
-    <v-tabs v-model="tab" density="compact" bg-color="light-blue-lighten-5" color="#40C4FF" grow>
-        <v-tab v-for="item in indexes" :key="item" :text="item" :value="item" class="font-weight-black"></v-tab>
+    <v-tabs v-model="tab" density="comfortable" bg-color="light-blue-lighten-5" color="#40C4FF" grow>
+        <v-tab v-for="item in indexes" :key="item" :text="item" :value="item" class="text-h7 font-weight-black"></v-tab>
     </v-tabs>
     <v-tabs-window v-model="tab">
         <v-tabs-window-item value="ホーム">
@@ -25,10 +25,6 @@
 
         <v-tabs-window-item value="飛行機">
             <airplane />
-        </v-tabs-window-item>
-
-        <v-tabs-window-item value="換金所">
-            <money />
         </v-tabs-window-item>
 
         <v-tabs-window-item value="マナー">
@@ -71,11 +67,10 @@ export default {
         season,
     },
     data() {
-
         return {
             tab: 'ホーム',
             indexes: [
-                'ホーム', 'スポット', 'グルメ', '交通', 'ホテル', '飛行機', '換金所', 'マナー', 'ワード', '季節',
+                'ホーム', 'スポット', 'グルメ', '交通', 'ホテル', '飛行機', 'マナー', 'ワード', '季節',
             ],
         }
     }

@@ -15,6 +15,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Index from '@/pages/index.vue'
 import Seoul from '@/pages/seoul.vue'
+import Busan from '@/pages/busan.vue'
+import Gangneung from '@/pages/gangneung.vue'
 
 const routes = [
   {
@@ -26,6 +28,16 @@ const routes = [
     path: '/seoul',
     name: 'seoul',
     component: Seoul,
+  },
+  {
+    path: '/busan',
+    name: 'busan',
+    component: Busan,
+  },
+  {
+    path: '/gangneung',
+    name: 'gangneung',
+    component: Gangneung,
   }
 ];
 
