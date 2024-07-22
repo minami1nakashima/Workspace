@@ -15,7 +15,7 @@
                     </p>
                     <v-btn id="more" size="small"
                         class="bg-light-blue-lighten-2 text-white text-body-2 font-weight-black"
-                        @click="test(item.place)">
+                        @click="text(item.place)">
                         エリアを見る
                     </v-btn>
                 </v-card>
@@ -25,85 +25,11 @@
     </v-card>
 
     <v-dialog v-model="dialog" max-width="1500">
-        <v-card v-if="place == '明洞エリア'" class="pa-5">
-            <Spots_Myeongdong />
-        </v-card>
-        <v-card v-if="place == '東大門(乙支路・忠武路)エリア'">
-            <template v-slot:text>
-                ccc
-            </template>
-        </v-card>
-        <v-card v-if="place == '市庁・鐘路エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '梨泰院エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '弘大・延南洞エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '新村・梨大エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '江南エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '漢江エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
+        <v-card class="pa-5">
+            <component :is="getComponent(place)"></component>
         </v-card>
     </v-dialog>
-    <!-- <v-dialog v-model="dialog" max-width="1500">
-        <v-card v-if="place == '明洞エリア'" class="pa-5">
-            <Spots_Myeongdong />
-        </v-card>
-        <v-card v-if="place == '東大門(乙支路・忠武路)エリア'">
-            <template v-slot:text>
-                ccc
-            </template>
-        </v-card>
-        <v-card v-if="place == '市庁・鐘路エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '梨泰院エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '弘大・延南洞エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '新村・梨大エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '江南エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-        <v-card v-if="place == '漢江エリア'">
-            <template v-slot:text>
-                aaaaa
-            </template>
-        </v-card>
-    </v-dialog> -->
+
 </template>
 
 <script>
@@ -172,25 +98,35 @@ export default {
                     text1: 'ソウルの街並みを見ながらのんびり',
                 },
             ],
-            tabs: [
-                {
-                    name: '明洞',
-                    comp: spots_myeongdong,
-                },
-                {
-                    name: '東大門',
-                    comp: spots_dongdaemun,
-                }
-            ]
-
         }
-
     },
+
     methods: {
-        test(itemPlace) {
+        text(itemPlace) {
             this.place = itemPlace
             this.dialog = true
-        }
+        },
+        getComponent(itemPlace) {
+            switch (itemPlace) {
+                case '明洞エリア':
+                    return 'spots_myeongdong';
+                case '東大門(乙支路・忠武路)エリア':
+                    return 'spots_dongdaemun';
+                case '市庁・鐘路エリア':
+                    return 'spots_jongno';
+                case '梨泰院エリア':
+                    return 'spots_itaewon';
+                case '弘大・延南洞エリア':
+                    return 'spots_hongdae';
+                case '新村・梨大エリア':
+                    return 'spots_sinchon';
+                case '江南エリア':
+                    return 'spots_gangnam';
+                case '漢江エリア':
+                    return 'spots_hanriver';
+
+            }
+        },
     }
 }
 </script>

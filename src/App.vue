@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <bar />
-    <v-main>
+    <v-main min-height="1120">
       <router-view />
     </v-main>
     <Footer />

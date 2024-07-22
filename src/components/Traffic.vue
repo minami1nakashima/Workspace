@@ -9,7 +9,8 @@
         <div>
             <p>韓国の主な移動手段は「バス」「電車」「タクシー」です。<br>
                 日本と変わらないです。。。<br>
-                ここでは韓国ならではの文化や、乗り方などを紹介していきます。
+                ここでは韓国ならではの文化や、乗り方などを紹介していきます。<br>
+                GoogleMapでは詳細が検索できないため(韓国がアメリカに詳細情報公開していないため)、韓国のアプリ(日本語対応)を使うことを強くお勧めします。
             </p>
             <v-list density="compact">
                 <v-list-item v-for="item in traffics" :key="item" :title="'・' + item"></v-list-item>
@@ -69,9 +70,13 @@
 
             <h4>バスの乗り方</h4>
             <v-divider :thickness="6" color="info" class="my-5"></v-divider>
-            <p>韓国のバスは「番号」で路線が違います。<br>
+            <p>
+                韓国のバスは「番号」で路線が違います。<br>
                 「NEVER MAP」を使えば簡単に行きたい先のバス番号を調べることができます。(アプリは日本語対応)<br>
+                冒頭でも述べましたが、韓国ではGoogleMapがほぼ使い物になりません。<br>
+                細かい道＋交通などの検索ができないです。
             </p>
+            <v-img src="@/assets/img/traffic/never.jpg"></v-img>
         </div>
     </v-sheet>
 

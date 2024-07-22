@@ -2,7 +2,8 @@
     <v-tabs v-model="tab" density="compact" bg-color="light-blue-lighten-5" color="#40C4FF" grow>
         <div width="1200" class="mx-auto">
             <v-tab v-for="item in indexes" :key="item" :text="item" :value="item"
-                class="text-subtitle-2 font-weight-black comfortable"></v-tab>
+                class="text-subtitle-2 font-weight-black comfortable">
+            </v-tab>
         </div>
     </v-tabs>
     <v-container>

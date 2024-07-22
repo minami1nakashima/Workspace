@@ -1,8 +1,4 @@
 <template>
-    <p class="text-h6 font-weight-black ma-10 mt-7">K-FOODおすすめ紹介</p>
-    <v-select v-model="Table" :item-props="itemProps" :items="table_name" :value="Table.table" label="ランキング表">
-    </v-select>
-
     <v-data-table :items="items" hide-default-footer>
         <template v-slot:item.check="{ item }">
             <v-checkbox-btn v-model="item.check" :value="item.Place" density="compact"></v-checkbox-btn>
@@ -11,63 +7,12 @@
 
 
     <v-data-table v-model="selected" :items="items" item-value="Place" show-select></v-data-table>
-
-    <!-- <v-sheet v-if="Rank(Table.table)">
-        <component :is="Rank(ranking)"></component>
-    </v-sheet> -->
-
-
-    <v-row>
-        <v-col cols="3" v-for="item in items" :key="item.place">
-            <v-card id="relative" class="mx-auto mt-5" max-width="240" min-height="280">
-                <v-img height="150px" v-for="item in imges" :key="item" :src="item.src" cover> </v-img>
-
-                <v-card-title>
-                    {{ item.Place }}
-                </v-card-title>
-                https://naver.me/xFprKyPp
-                <p id="more" @click="text(item.Place)" class="text-blue-darken-1 text-right ma-3">
-                    もっと見る
-                </p>
-            </v-card>
-        </v-col>
-    </v-row>
-
-    <v-dialog v-model="dialog" max-width="1500">
-        <v-card class="pa-5">
-            <component :is="getComponent(place)"></component>
-        </v-card>
-    </v-dialog>
-    <p>{{ selected }}</p>
 </template>
 
 <script>
-import kwangjangmarket from "@/components/kwangjangmarket.vue"
-
-import img1 from "@/assets/img/gourmet/yukhoe.jpg"
-
 export default {
-    components: {
-        kwangjangmarket
-    },
     data() {
         return {
-            dialog: false,
-            place: "",
-            table_name: [
-                {
-                    table: 'おすすめご飯ランキング🍗',
-                    text: '独断と偏見のランキング表',
-                },
-                {
-                    table: 'おすすめカフェランキング🧋',
-                    text: 'オシャレな韓国カフェをご紹介',
-                },
-                {
-                    table: 'おすすめコンビニ飯ランキング🍙',
-                    text: '韓国のコンビニ飯とスイーツランキング'
-                },
-            ],
             items: [
                 {
                     Rank: '🥇1',
@@ -153,37 +98,7 @@ export default {
 
                 //cafe 明洞　コンビニ
             ],
-            imges: [
-                {
-                    src: img1,
-                }
-            ]
         }
-    },
-    methods: {
-        text(itemPlace) {
-            this.place = itemPlace
-            this.dialog = true
-        },
-        getComponent(itemPlace) {
-            switch (itemPlace) {
-                case 'クァンジャン市場':
-                    return 'kwangjangmarket';
-            }
-        },
-        itemProps(item) {
-            return {
-                title: item.table,
-                subtitle: item.text,
-            }
-        },
-        // Rank(ranking) {
-        //     switch (ranking) {
-        //         case 'おすすめご飯ランキング🍗':
-        //             return 'k-food';
-        //     }
-        // }
     }
 }
-
 </script>
