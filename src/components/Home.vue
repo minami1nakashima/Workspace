@@ -1,22 +1,22 @@
     <template>
-        <v-divider class="mt-10 mx-auto" length="95%"></v-divider>
-        <v-row class="mt-10 mx-15">
+        <v-divider class="my-5 mx-auto" length="95%"></v-divider>
+        <v-row class="mx-10">
             <v-col cols="9">
-                <v-carousel height="580" :show-arrows="false" hide-delimiters cycle hide-delimiter-background cover>
+                <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background cover>
                     <v-carousel-item id="img" v-for="item in items" :key="i" :src="item.src" cover>
                         <p id="text" class="text-h5 font-weight-bold text-white">{{ item.text }}</p>
                     </v-carousel-item>
                 </v-carousel>
             </v-col>
             <v-col cols=" 3">
-                <v-carousel height="580" :show-arrows="false" hide-delimiters cycle hide-delimiter-background>
+                <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background>
                     <v-carousel-item v-for="item in slides" :key="item.slide">
-                        <v-card height="580" rounded-xl="2" :color="item.color" flat>
+                        <v-card height="480" rounded-xl="2" :color="item.color" flat>
                             <v-card-title class="d-flex justify-center mt-15 text-h5 font-weight-black">
                                 {{ item.slide }}
                             </v-card-title>
                             <v-divider class="mx-auto mt-5" length="80%"></v-divider>
-                            <v-card-text class="text-subtitle-1 "
+                            <v-card-text class="text-caption"
                                 style="white-space:pre-wrap; text-align: center; line-height: 2;">
                                 {{ item.explain }}
                             </v-card-text>
@@ -32,8 +32,8 @@
                 <p class="text-subtitle-1">\ 様々な情報をお伝えします。/</p>
             </v-col>
             <v-col v-for="item in cards" :key="item.theme">
-                <v-card id="relative" class="mx-auto mt-5" max-width="400" min-height="380">
-                    <v-img height="250px" :src="item.src" cover>
+                <v-card id="relative" class="mx-auto mt-5" max-width="240" min-height="280">
+                    <v-img height="150px" :src="item.src" cover>
                     </v-img>
 
                     <v-card-title>
@@ -91,7 +91,6 @@ export default {
                     slide: '光化門',
                     explain: `\\ 景福宮の城門の遺構 /
 
-
 周辺には歴史的な建造物や
 銅像、水路など！
 大都市に囲まれ
@@ -104,7 +103,6 @@ export default {
                     slide: '南山タワー',
                     explain: `\\ ソウルのシンボル /
 
-
 南山の頂上にそびえ立つ
 Nソウルタワー
 南山タワーといえばの
@@ -116,7 +114,6 @@ Nソウルタワー
                     color: 'blue-grey-lighten-5',
                     slide: '北村韓屋村',
                     explain: `\\ 韓屋が密集するエリア/
-
 
 朝鮮時代から残る韓国の伝統家屋
 「韓屋」
@@ -131,7 +128,6 @@ Nソウルタワー
                     slide: '明洞',
                     explain: `\\ 定番観光スポット明洞 /
 
-
 ファッション・コスメ・エステなど
 何でも揃う街です。
 ほとんどのお店で
@@ -145,7 +141,6 @@ Nソウルタワー
                     slide: '清渓川',
                     explain: `\\ 憩いの人口河川 /
                     
-
 市内中心部を流れているので
 アクセス抜群！
 「散歩道」とも呼ばれ、
@@ -163,8 +158,7 @@ Nソウルタワー
                 {
                     src: imgcard2,
                     theme: '韓国ラーメン特集',
-                    sub: `インスタントラーメンの種類が豊富
-厳選おすすめ`,
+                    sub: '厳選おすすめ即席ラーメン',
                 },
                 {
                     src: imgcard3,

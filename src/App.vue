@@ -2,29 +2,31 @@
   <v-app>
     <bar />
     <v-main>
-      <v-container>
-        <router-view />
-      </v-container>
+      <router-view />
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import bar from "@/components/Appbar.vue"
+import Footer from "@/components/Footer.vue"
 
 export default {
   components: {
     bar,
+    Footer,
   }
 }
 </script>
 
 <style>
-@media (min-width: 1200px) {
-  #main {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.v-container {
+  padding: 0 !important;
+}
+
+#main {
+  margin-top: -40px;
+  padding: 0;
 }
 </style>

@@ -8,10 +8,12 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79",
     "@mdi/font": "7.0.96",
     "core-js": "^3.34.0",
     "roboto-fontface": "*",
     "vue": "^3.4.0",
+    "vue3-google-map": "^0.20.0",
     "vuetify": "^3.5.0"
   },
   "devDependencies": {
