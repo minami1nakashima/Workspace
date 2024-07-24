@@ -1,5 +1,4 @@
 <template>
-    <v-divider class="mt-7 mx-auto" length="95%"></v-divider>
     <p class="text-h6 font-weight-black ma-10 mt-7">エリア別紹介</p>
 
     <v-card class="mt-5 mx-auto justify-center" width="90%" flat>

@@ -1,12 +1,13 @@
 <template>
     <v-tabs v-model="tab" density="compact" bg-color="light-blue-lighten-5" color="#40C4FF" grow>
         <div width="1200" class="mx-auto">
-            <v-tab v-for="item in indexes" :key="item" :text="item" :value="item"
+            <v-tab v-for="item in indexes" :key="item" :text="item" :value="item" boder="xl"
                 class="text-subtitle-2 font-weight-black comfortable">
             </v-tab>
         </div>
     </v-tabs>
     <v-container>
+        <v-divider class="mt-7 mb-5 mx-auto" length="95%"></v-divider>
         <component :is="getComponent(tab)"></component>
     </v-container>
 </template>

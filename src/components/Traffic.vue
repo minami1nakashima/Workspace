@@ -1,5 +1,4 @@
 <template>
-    <v-divider class="mt-7 mx-auto" length="95%"></v-divider>
     <v-sheet>
         <div>
             <p class="text-h6 font-weight-black ma-10 mt-7">韓国 公共交通機関情報</p>

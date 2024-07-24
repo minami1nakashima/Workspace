@@ -1,5 +1,4 @@
     <template>
-        <v-divider class="my-5 mx-auto" length="95%"></v-divider>
         <v-row class="mx-10">
             <v-col cols="9">
                 <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background cover>

@@ -1,7 +1,7 @@
 <template>
     <v-app-bar id="app" height="60" flat>
         <v-container class="mx-auto d-flex align-center justify-center">
-            <v-btn icon>
+            <v-btn icon rounded="0">
                 <v-icon>mdi-menu</v-icon>
                 <v-menu activator="parent" icon="bar-nav-icon">
                     <v-list @click:select="clickItem">

@@ -1,189 +1,103 @@
 <template>
-    <p class="text-h6 font-weight-black ma-10 mt-7">K-FOODおすすめ紹介</p>
-    <v-select v-model="Table" :item-props="itemProps" :items="table_name" :value="Table.table" label="ランキング表">
-    </v-select>
+    <v-sheet class="mx-10">
+        <p class="text-h6 font-weight-black  my-7">K-FOODおすすめ紹介</p>
+        <v-item-group>
+            <v-tabs v-model="tab">
+                <v-tab v-for=" item in Category" :key="item.name" :text="item.name" :value="item.name" :class="item.css"
+                    class="font-weight-black rounded-t-lg ml-1 border-t-lg border-e-lg border-s-lg" width="120px"
+                    height="35px">
+                </v-tab>
+            </v-tabs>
+        </v-item-group>
+        <v-sheet class="mx-1 mt-n4">
+            <component :is="getComponent(tab)"></component>
+        </v-sheet>
 
-    <v-data-table :items="items" hide-default-footer>
-        <template v-slot:item.check="{ item }">
-            <v-checkbox-btn v-model="item.check" :value="item.Place" density="compact"></v-checkbox-btn>
-        </template>
-    </v-data-table>
-
-
-    <v-data-table v-model="selected" :items="items" item-value="Place" show-select></v-data-table>
-
-    <!-- <v-sheet v-if="Rank(Table.table)">
-        <component :is="Rank(ranking)"></component>
-    </v-sheet> -->
-
-
-    <v-row>
-        <v-col cols="3" v-for="item in items" :key="item.place">
-            <v-card id="relative" class="mx-auto mt-5" max-width="240" min-height="280">
-                <v-img height="150px" v-for="item in imges" :key="item" :src="item.src" cover> </v-img>
-
-                <v-card-title>
-                    {{ item.Place }}
-                </v-card-title>
-                https://naver.me/xFprKyPp
-                <p id="more" @click="text(item.Place)" class="text-blue-darken-1 text-right ma-3">
-                    もっと見る
-                </p>
-            </v-card>
-        </v-col>
-    </v-row>
-
-    <v-dialog v-model="dialog" max-width="1500">
-        <v-card class="pa-5">
-            <component :is="getComponent(place)"></component>
-        </v-card>
-    </v-dialog>
-    <p>{{ selected }}</p>
+    </v-sheet>
 </template>
 
 <script>
-import kwangjangmarket from "@/components/kwangjangmarket.vue"
+import food from "@/components/k-food.vue"
+import cafe from "@/components/cafe.vue"
+import convenience from "@/components/convenience.vue"
 
-import img1 from "@/assets/img/gourmet/yukhoe.jpg"
 
 export default {
     components: {
-        kwangjangmarket
+        food,
+        cafe,
+        convenience,
     },
     data() {
         return {
-            dialog: false,
-            place: "",
-            table_name: [
+            tab: 'ご飯🍽️',
+            Category: [
                 {
-                    table: 'おすすめご飯ランキング🍗',
-                    text: '独断と偏見のランキング表',
+                    name: 'ご飯🍽️',
+                    css: 'id1',
                 },
                 {
-                    table: 'おすすめカフェランキング🧋',
-                    text: 'オシャレな韓国カフェをご紹介',
+                    name: 'カフェ☕',
+                    css: 'id2',
                 },
                 {
-                    table: 'おすすめコンビニ飯ランキング🍙',
-                    text: '韓国のコンビニ飯とスイーツランキング'
+                    name: 'コンビニ🍙',
+                    css: 'id3',
                 },
-            ],
-            items: [
-                {
-                    Rank: '🥇1',
-                    Place: 'クァンジャン市場',
-                    Menu: 'ユッケ/イイダコ/食べ歩き',
-                    Price: '¥3000~4000',
-                    Spiciness: 'なし',
-                    check: false,
-                },
-                {
-                    Rank: '🥈2',
-                    Place: 'スンミの家幸せケジャン',
-                    Menu: 'カンジャンケジャン',
-                    Price: '¥3000~4000',
-                    Spiciness: 'なし/🔥',
-                    check: false,
-                },
-                {
-                    Rank: '🥉3',
-                    Place: '肉ハダ',
-                    Menu: 'サムギョプサル',
-                    Price: '¥1500~2000',
-                    Spiciness: 'なし',
-                    check: false,
-                },
-                {
-                    Rank: '4',
-                    Place: 'BBQチキン',
-                    Menu: '黄金オリーブキチン',
-                    Price: '¥1500~2000',
-                    Spiciness: 'なし/🔥',
-                    check: false,
-                },
-                {
-                    Rank: '5',
-                    Place: '東大門猟奇トッポッキ',
-                    Menu: 'トッポッキ',
-                    Price: '¥1000~2000',
-                    Spiciness: '🔥~🔥🔥🔥🔥',
-                    check: false,
-                },
-                {
-                    Rank: '6',
-                    Place: 'テリョンジプ',
-                    Menu: 'カルグクス/ボッサム/チヂミ/ユッケ',
-                    Price: '¥1000~3000',
-                    Spiciness: 'なし',
-                    check: false,
-
-                },
-                {
-                    Rank: '7',
-                    Place: 'コヒャンジプ',
-                    Menu: 'クッパ',
-                    Price: '¥~1000',
-                    Spiciness: 'なし',
-                    check: false,
-                },
-                {
-                    Rank: '8',
-                    Place: 'ジェイルホルモン本店',
-                    Menu: 'ホルモン焼き',
-                    Price: '¥2000~3000',
-                    Spiciness: 'なし/🔥',
-                    check: false,
-                },
-                {
-                    Rank: '9',
-                    Place: 'コンブル',
-                    Menu: '豚肉豆もやし炒め',
-                    Price: '¥1000~2000',
-                    Spiciness: '🔥🔥🔥',
-                    check: false,
-                },
-                {
-                    Rank: '10',
-                    Place: '明洞餃子',
-                    Menu: 'カルグクス/餃子',
-                    Price: '¥1000~2000',
-                    Spiciness: 'なし',
-                    check: false,
-                },
-
-                //cafe 明洞　コンビニ
-            ],
-            imges: [
-                {
-                    src: img1,
-                }
             ]
-        }
+
+        };
     },
     methods: {
-        text(itemPlace) {
-            this.place = itemPlace
-            this.dialog = true
-        },
-        getComponent(itemPlace) {
-            switch (itemPlace) {
-                case 'クァンジャン市場':
-                    return 'kwangjangmarket';
+        getComponent(item) {
+            console.log(item)
+            switch (item) {
+                case 'ご飯🍽️':
+                    return 'food';
+                case 'カフェ☕':
+                    return 'cafe';
+                case 'コンビニ🍙':
+                    return 'convenience';
             }
         },
-        itemProps(item) {
-            return {
-                title: item.table,
-                subtitle: item.text,
-            }
-        },
-        // Rank(ranking) {
-        //     switch (ranking) {
-        //         case 'おすすめご飯ランキング🍗':
-        //             return 'k-food';
-        //     }
-        // }
-    }
+    },
 }
 
 </script>
+
+<style>
+.tab {
+    background-color: rgba(220, 232, 254, 0.495);
+}
+
+/* .v-tab-item--selected {
+
+    background-color: rgb(28, 166, 245);
+
+
+
+} */
+.id1 {
+    background-color: rgb(224, 237, 254);
+}
+
+.id2 {
+    background-color: rgb(248, 227, 205);
+}
+
+.id3 {
+    background-color: rgb(230, 249, 227);
+}
+
+.v-tab-item--selected.id1 {
+    background-color: rgb(117, 190, 254);
+}
+
+.v-tab-item--selected.id2 {
+    background-color: rgb(254, 174, 113);
+}
+
+.v-tab-item--selected.id3 {
+    background-color: rgb(165, 255, 156);
+}
+</style>
