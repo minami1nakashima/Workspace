@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import Home from "@/components/Home.vue";
-import Spots from "@/components/Spots.vue";
-import Gourmet from "@/components/Gourmet.vue";
-import Traffic from "@/components/Traffic.vue";
-import Hotel from "@/components/Hotel.vue";
-import Airplane from "@/components/Airplane.vue";
-import Manners from "@/components/Manners.vue";
-import Season from "@/components/Season.vue";
+import Home from "@/components/menu/Home.vue";
+import Spots from "@/components/menu/Spots.vue";
+import Gourmet from "@/components/menu/Gourmet.vue";
+import Traffic from "@/components/menu/Traffic.vue";
+import Hotel from "@/components/menu/Hotel.vue";
+import Airplane from "@/components/menu/Airplane.vue";
+import Manners from "@/components/menu/Manners.vue";
+import Season from "@/components/menu/Season.vue";
 
 export default {
     components: {

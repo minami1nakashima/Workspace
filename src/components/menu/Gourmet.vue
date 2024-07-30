@@ -12,14 +12,13 @@
         <v-sheet class="mx-1 mt-n4">
             <component :is="getComponent(tab)"></component>
         </v-sheet>
-
     </v-sheet>
 </template>
 
 <script>
-import food from "@/components/k-food.vue"
-import cafe from "@/components/cafe.vue"
-import convenience from "@/components/convenience.vue"
+import food from "@/components/gourmet/k-food.vue"
+import cafe from "@/components/gourmet/cafe.vue"
+import convenience from "@/components/gourmet/convenience.vue"
 
 
 export default {
@@ -70,13 +69,6 @@ export default {
     background-color: rgba(220, 232, 254, 0.495);
 }
 
-/* .v-tab-item--selected {
-
-    background-color: rgb(28, 166, 245);
-
-
-
-} */
 .id1 {
     background-color: rgb(224, 237, 254);
 }

@@ -41,8 +41,8 @@ import img6 from "@/assets/img/spots/sinchon.jpg"
 import img7 from "@/assets/img/spots/kangnum.jpg"
 import img8 from "@/assets/img/spots/iseoulu.jpg"
 
-import spots_myeongdong from "@/components/Spots_Myeongdong.vue"
-import spots_dongdaemun from "@/components/Spots_Dongdaemun.vue"
+import spots_myeongdong from "@/components/spots/Spots_Myeongdong.vue"
+import spots_dongdaemun from "@/components/spots/Spots_Dongdaemun.vue"
 
 export default {
     components: {
