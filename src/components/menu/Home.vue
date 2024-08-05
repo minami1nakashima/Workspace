@@ -166,18 +166,12 @@ Nソウルタワー
                 }
             ]
         }
-    }
-
+    },
 
     // created() {
-    //     console.log("this", this)
-    //     this.handleFileUpload()
+    //     console.log("airtable", import.meta.env.VITE_APP_ID)
+
     // },
-    // methods: {
-    //     handleFileUpload() {
-    //         console.log("AAAA")
-    //     }
-    // }
 }
 </script>
 <style>
