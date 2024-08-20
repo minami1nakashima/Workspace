@@ -12,6 +12,8 @@
     "@mdi/font": "7.0.96",
     "axios": "^1.7.3",
     "core-js": "^3.34.0",
+    "cors": "^2.8.5",
+    "newsapi": "^2.4.1",
     "roboto-fontface": "*",
     "vue": "^3.4.0",
     "vue3-google-map": "^0.20.0",
