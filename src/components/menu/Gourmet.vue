@@ -11,6 +11,7 @@
         </v-item-group>
         <v-window v-model="tab" class="mt-n4">
             <v-window-item :value="tab">
+                <!-- 書き直し -->
                 <gourmetcomp :tab="tab" :styleColor="table.styleColor" :bgColor="table.bgColor" :title="table.title"
                     :sub="table.sub" :items="table.items" :convenienceText1="table.convenienceText1"
                     :convenienceText2="table.convenienceText2" :convenienceText3="table.convenienceText3"

@@ -1,5 +1,6 @@
 <template>
     <p class="text-h6 font-weight-black ma-10 mt-7">エリア別紹介</p>
+    <!-- カードニュース -->
     <v-sheet class="mx-10">
         <CardComp :page="page" :cardItem="items" :classText="classText" :classBtn="classBtn" :go="go"></CardComp>
     </v-sheet>
@@ -7,6 +8,7 @@
 
 <script>
 import CardComp from "@/components/comp/CardComp.vue"
+
 import img1 from "@/assets/img/spots/streetfood.jpg"
 import img2 from "@/assets/img/spots/ddp.jpg"
 import img3 from "@/assets/img/spots/bukchon.jpg"
@@ -32,19 +34,19 @@ export default {
                     src: img1,
                     area: '明洞エリア',
                     text: '人気NO.１の観光地',
-                    component: 'Spots_Myeongdong'
+                    component: 'SpotsMyeongdong'
                 },
                 {
                     src: img2,
                     area: '東大門(乙支路・忠武路)エリア',
                     text: 'ファッションの最先端街',
-                    component: 'Spots_Dongdaemun'
+                    component: 'SpotsDongdaemun'
                 },
                 {
                     src: img3,
                     area: '市庁・鐘路エリア',
                     text: '韓国の歴史を感じされるエリア',
-                    component: 'Spots_Jongno'
+                    component: 'SpotsJongno'
                 },
                 {
                     src: img4,

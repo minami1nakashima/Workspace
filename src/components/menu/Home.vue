@@ -1,5 +1,6 @@
     <template>
         <v-row class="mx-10">
+            <!-- カルーセル写真 -->
             <v-col cols="9">
                 <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background cover>
                     <v-carousel-item id="img" v-for="item in items" :key="i" :src="item.src" cover>
@@ -7,6 +8,8 @@
                     </v-carousel-item>
                 </v-carousel>
             </v-col>
+
+            <!-- カルーセル文章 -->
             <v-col cols=" 3">
                 <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background>
                     <v-carousel-item v-for="item in slides" :key="item.slide">
@@ -30,26 +33,51 @@
                 <h2>韓国のあんなこんな</h2>
                 <p class="text-subtitle-1">\ 様々な情報をお伝えします。/</p>
             </v-col>
-            <v-col v-for="item in cards" :key="item.theme">
-                <v-card id="relative" class="mx-auto mt-5" max-width="240" min-height="280">
-                    <v-img height="150px" :src="item.src" cover>
-                    </v-img>
 
-                    <v-card-title>
-                        {{ item.theme }}
-                    </v-card-title>
-                    <p style="white-space:pre-wrap;" class="ml-4 text-body-2">
-                        {{ item.sub }}
-                    </p>
-                    <p id="more" @click=" test(item.theme)" class="text-blue-darken-1 text-right ma-3">
-                        もっと見る
-                    </p>
-                </v-card>
-            </v-col>
+            <!-- カードコンテンツ -->
+            <v-row>
+                <v-col v-for="item in cards" :key="item.theme">
+                    <v-card id="relative" class="mx-auto mt-5" max-width="240" min-width="240" min-height="280">
+                        <v-img height="150px" :src="item.src" cover></v-img>
+                        <v-card-title>
+                            {{ item.theme }}
+                        </v-card-title>
+                        <p style="white-space:pre-wrap;" class="ml-4 text-body-2">
+                            {{ item.sub }}
+                        </p>
+                        <p id="more" @click=" test(item.theme)" class="text-blue-darken-1 text-right ma-3">
+                            もっと見る
+                        </p>
+                    </v-card>
+                </v-col>
+            </v-row>
+
+            <!-- カードニュース -->
+            <v-row>
+                <v-col cols="12">
+                    <h2>トップニュース</h2>
+                </v-col>
+
+                <v-col v-for="item in newsItem" :key="item.theme" cols="3" class="mx-auto">
+                    <v-card id="relative" class="mx-auto mt-5" max-width="240" min-width="240" min-height="280">
+                        <v-img height="150px" :src="item.urlToImage" cover></v-img>
+                        <v-card-title>
+                            {{ item.title }}
+                        </v-card-title>
+                        <p style="white-space:pre-wrap;" class="ml-4 text-body-2">
+                            {{ item.description }}
+                        </p>
+                        <p id="more" @click="click(item.url)" class="text-blue-darken-1 text-right ma-3">
+                            もっと見る
+                        </p>
+                    </v-card>
+                </v-col>
+            </v-row>
         </v-row>
     </template>
 
 <script>
+import axios from 'axios'
 import img1 from "@/assets/img/home/gwanghwamun.jpg"
 import img2 from "@/assets/img/home/nseoultower.jpg"
 import img3 from "@/assets/img/home/bukchon_1.jpg"
@@ -62,6 +90,7 @@ import imgcard3 from "@/assets/img/home/kochujang.jpg"
 export default {
     data() {
         return {
+            newsItem: [],
             items: [
                 {
                     src: img1,
@@ -168,10 +197,22 @@ Nソウルタワー
         }
     },
 
-    // created() {
-    //     console.log("airtable", import.meta.env.VITE_APP_ID)
 
-    // },
+    methods: {
+        News() {
+            axios.get('https://newsapi.org/v2/top-headlines?q=korea&apiKey=98c82fa89a004667b1cc0687d129f86d')
+                .then(response => {
+                    this.newsItem = response.data.articles;
+                    console.log('news', response.data.articles)
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    },
+    mounted() {
+        this.News();
+    }
 }
 </script>
 <style>

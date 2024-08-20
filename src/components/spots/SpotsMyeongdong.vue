@@ -1,9 +1,13 @@
 <template v-slot:text>
     <v-sheet class="ma-10 pa-3" color="light-blue-lighten-5">
+        <!-- エリア名 -->
         <div class="mt-10 ml-15">
             <h1>明洞エリア</h1>
+            <!-- サブタイトル -->
             観光客に<strong class="text-light-blue-accent-2">人気NO.1の観光地</strong>
         </div>
+
+        <!-- エリア説明 -->
         <v-row class="mt-10 ml-15">
             <v-col cols=" 6">
                 <p id="sp_md" style="line-height: 2.5;"><br>
@@ -16,6 +20,7 @@
                 </p>
                 <p class="text-caption" style="line-height: 0;">※屋台については「グルメ」にて紹介しています。</p>
 
+                <!-- アドバイス -->
                 <v-card class="pa-5 my-10 text-body-2" width="80%">
                     <v-carv-title>
                         <span class="mdi mdi-check-decagram-outline"></span>
@@ -29,9 +34,11 @@
                         反対にお店の人は押し売りがひどいので、はっきりと意思表示しましょう。
                     </v-card-text>
                 </v-card>
+
                 <p>今回はカテゴリー別に紹介していきたいと思います。</p>
 
             </v-col>
+            <!-- 地図 -->
             <v-col cols="6">
                 <v-img src="@/assets/img/spots/M_map.jpg" class="mx-auto mb-2"></v-img>
                 <p class="text-center">地下鉄4号線 明洞駅 6番出口<br>
@@ -40,13 +47,16 @@
         </v-row>
     </v-sheet>
 
+    <!-- メイン内容 -->
     <v-sheet class="ma-10 pa-3">
+        <!-- 紹介カテゴリー -->
         <h3>カテゴリー</h3>
         <v-divider :thickness="6" color="info" class="my-5"></v-divider>
         <v-list density="compact">
             <v-list-item v-for="item in indexes" :key="item" :title="'・' + item"></v-list-item>
         </v-list>
 
+        <!-- コスメ -->
         <h3 class="mt-15">コスメ</h3>
         <v-divider :thickness="6" color="info" class="my-5"></v-divider>
         <p style="line-height: 2;">韓国旅行のお土産に欠かせないのがコスメ<br>
@@ -54,10 +64,12 @@
             そこで今回は「明洞エリア」で、おすすめのコスメショップをご紹介
         </p>
 
+        <!-- コスメ：ブランド名 -->
         <v-list density="compact">
             <v-list-item v-for="item in cosmetics" :key="item" :title="'・' + item"></v-list-item>
         </v-list>
 
+        <!-- NATURE REPUBLIC -->
         <div class="mt-15">
             <h3>①NATURE REPUBLIC 明洞ワールド店</h3>
             <v-divider :thickness="6" color="info" class="my-5"></v-divider>
@@ -89,6 +101,7 @@
             </v-card>
         </div>
 
+        <!-- MISSHA -->
         <div class="mt-15">
             <h3>②MISSHA +PLUS 明洞メガストア店</h3>
             <v-divider :thickness="6" color="info" class="my-5"></v-divider>
